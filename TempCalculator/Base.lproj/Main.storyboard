@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,120 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="OLq-VC-0Zr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Fahrenheit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pq7-O7-t74">
+                                <rect key="frame" x="16" y="168" width="346" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qJ5-4d-KUc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ujq-VH-cAd">
+                                <rect key="frame" x="16" y="216" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="sXJ-2Z-Q0S"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="dt8-L1-Fee"/>
+                                </connections>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Temp1" translatesAutoresizingMaskIntoConstraints="NO" id="PAW-7U-7Vp">
+                                <rect key="frame" x="14" y="260" width="346" height="261"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Celsius" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-c6-Yf8">
+                                <rect key="frame" x="17" y="541" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Sx4-pr-T8O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tOP-Hg-lTe">
+                                <rect key="frame" x="13" y="599" width="348" height="29"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="95N-DI-ghP"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Calculate to F"/>
+                                    <segment title="Calculate to C"/>
+                                </segments>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="segCalculator:" destination="BYZ-38-t0r" eventType="valueChanged" id="MQh-97-4I4"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temprature Calculator" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="x91-HD-4bm">
+                                <rect key="frame" x="14" y="29" width="349" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="x91-HD-4bm" secondAttribute="height" multiplier="349:140" id="XpT-1Q-zDF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x91-HD-4bm" secondAttribute="trailing" constant="12" id="12p-yF-EOc"/>
+                            <constraint firstItem="pq7-O7-t74" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="148" id="3Wy-rA-wQJ"/>
+                            <constraint firstAttribute="bottom" secondItem="OLq-VC-0Zr" secondAttribute="bottom" id="5hk-57-z6t"/>
+                            <constraint firstItem="OLq-VC-0Zr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="74l-zv-bcg"/>
+                            <constraint firstItem="OLq-VC-0Zr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-20" id="8Oe-2B-KL9"/>
+                            <constraint firstItem="OLq-VC-0Zr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9XV-Xs-KsS"/>
+                            <constraint firstItem="F9h-c6-Yf8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="17" id="Ajb-IO-O5k"/>
+                            <constraint firstItem="PAW-7U-7Vp" firstAttribute="top" secondItem="ujq-VH-cAd" secondAttribute="bottom" constant="14" id="CWE-SP-5fa"/>
+                            <constraint firstItem="OLq-VC-0Zr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ciy-QM-1aj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tOP-Hg-lTe" secondAttribute="bottom" constant="40" id="IdO-cr-L4t"/>
+                            <constraint firstItem="PAW-7U-7Vp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="LD5-bG-Qaq"/>
+                            <constraint firstItem="ujq-VH-cAd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LHG-g4-xQg"/>
+                            <constraint firstItem="ujq-VH-cAd" firstAttribute="top" secondItem="pq7-O7-t74" secondAttribute="bottom" constant="8" id="OzK-dV-oBO"/>
+                            <constraint firstItem="pq7-O7-t74" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RlG-Kh-Vkn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F9h-c6-Yf8" secondAttribute="trailing" constant="15" id="W0R-a3-ycJ"/>
+                            <constraint firstItem="ujq-VH-cAd" firstAttribute="top" secondItem="x91-HD-4bm" secondAttribute="bottom" constant="47" id="XL7-jr-U1d"/>
+                            <constraint firstItem="tOP-Hg-lTe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="13" id="YGX-zg-i3e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ujq-VH-cAd" secondAttribute="trailing" constant="16" id="aXR-hK-6gW"/>
+                            <constraint firstItem="OLq-VC-0Zr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="clf-Wf-emU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PAW-7U-7Vp" secondAttribute="trailing" constant="15" id="d5d-Yu-aAn"/>
+                            <constraint firstItem="OLq-VC-0Zr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dYZ-vl-MEs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tOP-Hg-lTe" secondAttribute="trailing" constant="14" id="dcb-R9-x4U"/>
+                            <constraint firstItem="x91-HD-4bm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="ehJ-41-7lE"/>
+                            <constraint firstItem="tOP-Hg-lTe" firstAttribute="top" secondItem="F9h-c6-Yf8" secondAttribute="bottom" constant="18" id="fNI-8X-edg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pq7-O7-t74" secondAttribute="trailing" constant="13" id="hOr-Tv-vb0"/>
+                            <constraint firstItem="OLq-VC-0Zr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hdw-4F-gpz"/>
+                            <constraint firstItem="x91-HD-4bm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="p7K-qb-4UP"/>
+                            <constraint firstItem="F9h-c6-Yf8" firstAttribute="top" secondItem="PAW-7U-7Vp" secondAttribute="bottom" constant="20" id="v2b-nc-aTV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="controlSeg" destination="tOP-Hg-lTe" id="966-Xm-JCs"/>
+                        <outlet property="enterLabel" destination="pq7-O7-t74" id="xCD-hs-2vu"/>
+                        <outlet property="imageView" destination="PAW-7U-7Vp" id="s2P-Ni-tHL"/>
+                        <outlet property="outputLabel" destination="F9h-c6-Yf8" id="QOv-rm-IFA"/>
+                        <outlet property="textField" destination="ujq-VH-cAd" id="h1Z-af-qag"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-82.400000000000006" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="1939.70751953125" height="1027.5589599609375"/>
+        <image name="Temp1" width="263" height="943"/>
+    </resources>
 </document>
